@@ -1,4 +1,7 @@
 // Select color input
+let colorPicker = $('#colorPicker');
+console.log(colorPicker);
+
 // Select size input
 let pixelCanvas = $('#pixelCanvas');
 
@@ -8,8 +11,6 @@ $(document).on('submit', '#sizePicker', function(e) {
     e.preventDefault();
     const tableHeight = $('#inputHeight').val();
     const tableWidth = $('#inputWidth').val();
-    console.log(tableHeight);
-    console.log(tableWidth);
     for(let i = 1; i <= tableHeight; i++){
         pixelCanvas.append(`<tr class="a"></tr>`);
     }
@@ -17,6 +18,10 @@ $(document).on('submit', '#sizePicker', function(e) {
         $('.a').append(`<td></td>`);
     }
 
+});
+
+$(document).on('click', 'td', function () {
+    $(this).css('background-color', colorPicker.val())
 });
 
 // function makeGrid() {
