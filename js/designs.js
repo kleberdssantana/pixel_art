@@ -14,11 +14,12 @@ let pixelCanvas = $('#pixelCanvas');
 
 // When size is submitted by the user, call makeGrid()
 
-$(document).on('submit', '#sizePicker', function(e) {
+$('#sizePicker').on('submit', function(e) {
     e.preventDefault();
-    if($('td').css("background-color")){
+    pixelCanvas.html('');
+    if($('td').css('background-color')){
         pixelCanvas.html('');
-    }else{
+    }else {
         const tableHeight = $('#inputHeight').val();
         const tableWidth = $('#inputWidth').val();
         for(let i = 1; i <= tableHeight; i++){
@@ -27,7 +28,6 @@ $(document).on('submit', '#sizePicker', function(e) {
         for(let k = 1; k <= tableWidth; k++){
             $('.tr-canvas').append(`<td></td>`);
         }
-
     }
 
 });
